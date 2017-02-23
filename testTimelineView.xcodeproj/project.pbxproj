@@ -10,8 +10,8 @@
 		F1BCCFAD1E5EE86200C04DF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BCCFAC1E5EE86200C04DF0 /* AppDelegate.swift */; };
 		F1BCCFAF1E5EE86200C04DF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1BCCFAE1E5EE86200C04DF0 /* Assets.xcassets */; };
 		F1BCCFB21E5EE86200C04DF0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1BCCFB01E5EE86200C04DF0 /* MainMenu.xib */; };
-		F1BCCFBB1E5EE88A00C04DF0 /* FSTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BCCFB91E5EE88A00C04DF0 /* FSTimelineView.swift */; };
-		F1BCCFBC1E5EE88A00C04DF0 /* FSTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BCCFBA1E5EE88A00C04DF0 /* FSTrackView.swift */; };
+		F1BCCFC01E5EE9A400C04DF0 /* FSTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BCCFBE1E5EE9A400C04DF0 /* FSTimelineView.swift */; };
+		F1BCCFC11E5EE9A400C04DF0 /* FSTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BCCFBF1E5EE9A400C04DF0 /* FSTrackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,8 +20,8 @@
 		F1BCCFAE1E5EE86200C04DF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1BCCFB11E5EE86200C04DF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		F1BCCFB31E5EE86200C04DF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F1BCCFB91E5EE88A00C04DF0 /* FSTimelineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSTimelineView.swift; sourceTree = "<group>"; };
-		F1BCCFBA1E5EE88A00C04DF0 /* FSTrackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSTrackView.swift; sourceTree = "<group>"; };
+		F1BCCFBE1E5EE9A400C04DF0 /* FSTimelineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSTimelineView.swift; sourceTree = "<group>"; };
+		F1BCCFBF1E5EE9A400C04DF0 /* FSTrackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSTrackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +54,22 @@
 		F1BCCFAB1E5EE86200C04DF0 /* testTimelineView */ = {
 			isa = PBXGroup;
 			children = (
-				F1BCCFB91E5EE88A00C04DF0 /* FSTimelineView.swift */,
-				F1BCCFBA1E5EE88A00C04DF0 /* FSTrackView.swift */,
+				F1BCCFBD1E5EE9A400C04DF0 /* Timeline */,
 				F1BCCFAC1E5EE86200C04DF0 /* AppDelegate.swift */,
 				F1BCCFAE1E5EE86200C04DF0 /* Assets.xcassets */,
 				F1BCCFB01E5EE86200C04DF0 /* MainMenu.xib */,
 				F1BCCFB31E5EE86200C04DF0 /* Info.plist */,
 			);
 			path = testTimelineView;
+			sourceTree = "<group>";
+		};
+		F1BCCFBD1E5EE9A400C04DF0 /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				F1BCCFBE1E5EE9A400C04DF0 /* FSTimelineView.swift */,
+				F1BCCFBF1E5EE9A400C04DF0 /* FSTrackView.swift */,
+			);
+			path = Timeline;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -92,7 +100,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0800;
-				ORGANIZATIONNAME = fancy;
+				ORGANIZATIONNAME = Wondershare;
 				TargetAttributes = {
 					F1BCCFA81E5EE86200C04DF0 = {
 						CreatedOnToolsVersion = 8.0;
@@ -135,8 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1BCCFBB1E5EE88A00C04DF0 /* FSTimelineView.swift in Sources */,
-				F1BCCFBC1E5EE88A00C04DF0 /* FSTrackView.swift in Sources */,
+				F1BCCFC01E5EE9A400C04DF0 /* FSTimelineView.swift in Sources */,
+				F1BCCFC11E5EE9A400C04DF0 /* FSTrackView.swift in Sources */,
 				F1BCCFAD1E5EE86200C04DF0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
