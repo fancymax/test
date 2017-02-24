@@ -16,6 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var clipAddTrackIndexTxt: NSTextField!
     @IBOutlet weak var clipAddTrackPosTxt: NSTextField!
+    @IBOutlet weak var clipLenTxt: NSTextField!
     
     @IBAction func clickAddTrack(_ sender: AnyObject) {
         timelineView.addTrackView()
@@ -24,11 +25,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func clickAddClip(_ sender: AnyObject) {
         let trackIndex = Int(clipAddTrackIndexTxt.stringValue)!
         let position = Double(clipAddTrackPosTxt.stringValue)!
-        timelineView.addClipViewIn(trackIndex, offset: position)
+        if clipLenTxt.stringValue == "" {
+            
+        }
+        timelineView.addClipViewInTrack(trackIndex, offset: position)
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        timelineView.addClipViewIn(2, offset: 20)
+        timelineView.addClipViewInTrack(2, offset: 20)
+        timelineView.addClipViewInTrack(1, offset: 60)
+        timelineView.addClipViewInTrack(4, offset: 100)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

@@ -1,6 +1,6 @@
 //
 //  FSSeperateLineView.swift
-//  testCALayer
+//  Timeline
 //
 //  Created by fancymax on 2/23/2017.
 //  Copyright © 2017年 fancy. All rights reserved.

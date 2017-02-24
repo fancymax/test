@@ -1,6 +1,6 @@
 //
 //  FSTimelineView.swift
-//  testCALayer
+//  Timeline
 //
 //  Created by fancymax on 2/23/2017.
 //  Copyright © 2017年 fancy. All rights reserved.
@@ -16,7 +16,7 @@ class FSTimelineView: NSView {
     
     var clipWidth:CGFloat = 50.0
     var clipHeight:CGFloat = 40.0
-
+    
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
 
@@ -38,12 +38,10 @@ class FSTimelineView: NSView {
         self.addSubview(trackView)
         
         //Add layout
-        
-        
         trackCount += 1
     }
     
-    func addClipViewIn(_ trackIndex: Int, offset:Double) {
+    func addClipViewInTrack(_ trackIndex: Int, offset:Double) {
         
         let lx = self.frame.origin.x + CGFloat(offset)
         let ly = self.frame.size.height - trackHeight * CGFloat(trackIndex)
@@ -52,7 +50,46 @@ class FSTimelineView: NSView {
         let frame = NSRect(x: lx, y: ly, width: lw, height: lh)
         
         let clipView = FSClipView(frame: frame)
+        clipView.trackIndex = trackIndex
+        clipView.position = offset
+        clipView.delegate = self
         self.addSubview(clipView)
     }
+}
+
+extension FSTimelineView: FSClipViewDelegate {
+    func clipView(_ clipView: FSClipView, shouldOtherClipUnfocus shouldUnfocus: Bool) {
+        if shouldUnfocus {
+            for otherClipView in self.subviews where  otherClipView != clipView {
+                if let clip = otherClipView as? FSClipView {
+                    if clip.isFocus {
+                        clip.isFocus = false
+                    }
+                }
+            }
+        }
+    }
     
+    func clipView(_ clipView: FSClipView, shouldChangeTrackByOffset yOffset: CGFloat) -> Bool {
+        
+        if yOffset > trackHeight {
+            if clipView.trackIndex <= 1 {
+                return false
+            }
+            
+            clipView.trackIndex -= 1
+            let ly = self.frame.size.height - trackHeight * CGFloat(clipView.trackIndex)
+            clipView.frame.origin.y = ly
+            return true
+        }
+        
+        if yOffset < -trackHeight {
+            clipView.trackIndex += 1
+            let ly = self.frame.size.height - trackHeight * CGFloat(clipView.trackIndex)
+            clipView.frame.origin.y = ly
+            return true
+        }
+        
+        return false
+    }
 }
