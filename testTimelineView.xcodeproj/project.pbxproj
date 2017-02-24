@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1AE3C951E5FD08B00D75C21 /* FSClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE3C941E5FD08B00D75C21 /* FSClipView.swift */; };
 		F1BCCFAD1E5EE86200C04DF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BCCFAC1E5EE86200C04DF0 /* AppDelegate.swift */; };
 		F1BCCFAF1E5EE86200C04DF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1BCCFAE1E5EE86200C04DF0 /* Assets.xcassets */; };
 		F1BCCFB21E5EE86200C04DF0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1BCCFB01E5EE86200C04DF0 /* MainMenu.xib */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F1AE3C941E5FD08B00D75C21 /* FSClipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSClipView.swift; sourceTree = "<group>"; };
 		F1BCCFA91E5EE86200C04DF0 /* testTimelineView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testTimelineView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1BCCFAC1E5EE86200C04DF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1BCCFAE1E5EE86200C04DF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			children = (
 				F1BCCFBE1E5EE9A400C04DF0 /* FSTimelineView.swift */,
 				F1BCCFBF1E5EE9A400C04DF0 /* FSTrackView.swift */,
+				F1AE3C941E5FD08B00D75C21 /* FSClipView.swift */,
 			);
 			path = Timeline;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 				F1BCCFC01E5EE9A400C04DF0 /* FSTimelineView.swift in Sources */,
 				F1BCCFC11E5EE9A400C04DF0 /* FSTrackView.swift in Sources */,
 				F1BCCFAD1E5EE86200C04DF0 /* AppDelegate.swift in Sources */,
+				F1AE3C951E5FD08B00D75C21 /* FSClipView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +302,7 @@
 				F1BCCFB81E5EE86200C04DF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

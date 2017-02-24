@@ -13,6 +13,9 @@ class FSTimelineView: NSView {
     var trackCount = 0
     var trackHeight:CGFloat = 40.0
     var trackSeperatelineHeight:CGFloat = 1
+    
+    var clipWidth:CGFloat = 50.0
+    var clipHeight:CGFloat = 40.0
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -34,7 +37,22 @@ class FSTimelineView: NSView {
         let trackView = FSTrackView(frame: frame)
         self.addSubview(trackView)
         
+        //Add layout
+        
+        
         trackCount += 1
+    }
+    
+    func addClipViewIn(_ trackIndex: Int, offset:Double) {
+        
+        let lx = self.frame.origin.x + CGFloat(offset)
+        let ly = self.frame.size.height - trackHeight * CGFloat(trackIndex)
+        let lw = self.clipWidth
+        let lh = self.clipHeight
+        let frame = NSRect(x: lx, y: ly, width: lw, height: lh)
+        
+        let clipView = FSClipView(frame: frame)
+        self.addSubview(clipView)
     }
     
 }
