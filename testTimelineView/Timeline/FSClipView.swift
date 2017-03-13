@@ -10,8 +10,9 @@ import Cocoa
 
 protocol FSClipViewDelegate: class {
     func clipView(_ clipView:FSClipView,shouldOtherClipUnfocus shouldUnfocus:Bool)
-    func clipView(_ clipView:FSClipView,shouldChangeTrackByOffset yOffset:CGFloat) -> Bool
-//    func clipView(_ clipView:FSClipView,shouldrePositionBy yOffset:CGFloat) -> Bool
+    func clipView(_ clipView:FSClipView,getXPositionBy newFrame: NSRect) -> CGFloat
+    func clipView(_ clipView:FSClipView,shouldChangeTrackBy yOffset: CGFloat) -> Bool
+    func clipView(_ clipView:FSClipView,getYPositionBy trackIndex:Int) -> CGFloat
 }
 
 class FSClipView: NSView {
@@ -22,13 +23,10 @@ class FSClipView: NSView {
             self.needsDisplay = true
         }
     }
-    var trackIndex:Int = 0
+    var trackIndex:Int = 0 
+ 
     var position:Double = 0
     
-    private var accumulationY:CGFloat = 0
-    private var lastlx:CGFloat = 0
-    private var lastly:CGFloat = 0
-
     override func draw(_ dirtyRect: NSRect) {
         NSColor(calibratedWhite: 1, alpha: 0.8).set()
         NSBezierPath.fill(dirtyRect)
@@ -41,23 +39,7 @@ class FSClipView: NSView {
         }
     }
     
-    override func mouseDragged(with event: NSEvent) {
-        
-        self.frame.origin.x += event.deltaX
-        
-        accumulationY -= event.deltaY
-        if let delegate = self.delegate {
-            if delegate.clipView(self, shouldChangeTrackByOffset: accumulationY) {
-                accumulationY = 0
-            }
-        }
-
-        self.needsDisplay = true
-    }
-    
     override func mouseDown(with event: NSEvent) {
-        lastlx = self.frame.origin.x
-        lastly = self.frame.origin.y
         
         if !isFocus {
             isFocus = true
@@ -65,10 +47,40 @@ class FSClipView: NSView {
                 delegate.clipView(self, shouldOtherClipUnfocus: true)
             }
         }
+        
+        var startingOrigin = self.frame.origin
+        var xTotalMoved:CGFloat = 0
+        var yTotalMoved:CGFloat = 0
+        
+        self.window!.trackEvents(matching: [.leftMouseDragged, .leftMouseUp], timeout:NSEventDurationForever, mode: .defaultRunLoopMode) { event, stop in
+            
+            xTotalMoved += event.deltaX
+            yTotalMoved -= event.deltaY
+            
+            if let delegate = self.delegate {
+                if delegate.clipView(self, shouldChangeTrackBy: yTotalMoved) {
+                    if yTotalMoved > 0 {
+                        self.trackIndex -= 1
+                    }
+                    else {
+                        self.trackIndex += 1
+                    }
+                    startingOrigin.y = delegate.clipView(self, getYPositionBy: self.trackIndex)
+                    yTotalMoved = 0
+                }
+                else {
+                    var newOrigin = NSPoint(x: startingOrigin.x + xTotalMoved, y: startingOrigin.y)
+                    let newFrame = NSMakeRect(newOrigin.x, newOrigin.y, self.frame.width, self.frame.height)
+                    newOrigin.x = delegate.clipView(self, getXPositionBy: newFrame)
+                    self.setFrameOrigin(newOrigin)
+                }
+            }
+            
+            if event.type == .leftMouseUp {
+                stop.pointee = true
+            }
+        }
     }
     
-    override func mouseUp(with event: NSEvent) {
-        accumulationY = 0
-    }
     
 }
