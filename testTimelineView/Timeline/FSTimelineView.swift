@@ -58,6 +58,7 @@ class FSTimelineView: NSView {
         clipView.trackIndex = trackIndex
         clipView.position = offset
         clipView.delegate = self
+        clipView.autoresizingMask = [.viewMinYMargin,.viewMaxXMargin]
         self.addSubview(clipView)
     }
 }
