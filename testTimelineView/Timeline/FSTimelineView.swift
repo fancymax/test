@@ -8,69 +8,129 @@
 
 import Cocoa
 
+class FSTimelineBaseView:NSView {
+    
+    var trackIndex = 0
+    
+}
+
 class FSTimelineView: NSView {
     
     var trackCount = 0
     var trackHeight:CGFloat = 40.0
-    var trackSeperatelineHeight:CGFloat = 1
     
-    var clipWidth:CGFloat = 50.0
-    var clipHeight:CGFloat = 40.0
+    var totalClipNum = 0
     
-    override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
-
-        // Drawing code here.
-        let backGroundColor = NSColor(calibratedWhite: 0, alpha: 0.8)
-        backGroundColor.set()
-        NSBezierPath.fill(dirtyRect)
+    var seekPosition:CGFloat = 0 {
+        didSet {
+            self.needsDisplay = true
+        }
     }
     
-    func addTrackView()  {
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        commonInit()
+    }
+    
+    func commonInit() {
+        self.registerAllNotification()
+    }
+    
+    // MARK: - Clip
+    func addClipView(_ clipView:FSClipView, trackIndex: Int, position:Int, length:Int) {
         
-        let lx = self.frame.origin.x
-        let ly = self.frame.size.height - trackHeight * CGFloat(trackCount)
-        let lw = self.frame.size.width
-        let lh = trackSeperatelineHeight
+        totalClipNum += 1
+        
+        let lx = self.bounds.origin.x + CGFloat(position)
+        let ly = self.bounds.size.height - trackHeight * CGFloat(trackIndex)
+        let lw = CGFloat(length)
+        let lh = trackHeight
+        
+        clipView.frame = NSRect(x: lx, y: ly, width: lw, height: lh)
+        clipView.trackIndex = trackIndex
+        clipView.position = position
+        clipView.delegate = self
+        clipView.autoresizingMask = [.viewMinYMargin,.viewMaxXMargin]
+        clipView.name = "clip\(totalClipNum)"
+        self.addSubview(clipView)
+    }
+    
+    // MARK: - Track
+    func removeTrackView() {
+        for view  in self.subviews where view is FSTrackView {
+            if (view as! FSTrackView).trackIndex == trackCount {
+                view.removeFromSuperview()
+            }
+        }
+        
+        trackCount -= 1
+    }
+    
+   func addTrackView()  {
+        let lx = self.bounds.origin.x
+        let ly = self.bounds.size.height - trackHeight * CGFloat(trackCount + 1)
+        let lw = self.bounds.size.width
+        let lh = trackHeight
         let frame = NSRect(x: lx, y: ly, width: lw, height: lh)
+        let view = FSTrackView(frame: frame)
+        view.trackIndex = trackCount + 1
+        view.autoresizingMask = [.viewMinYMargin,.viewWidthSizable]
+        self.addSubview(view)
         
-        let trackView = FSTrackView(frame: frame)
-        self.addSubview(trackView)
+        if trackHeight * CGFloat(trackCount + 1) > self.bounds.height {
+            let size = NSMakeSize(self.frame.size.width, trackHeight * CGFloat(trackCount + 1))
+            self.frame.size = size
+        }
         
-        //Add layout
         trackCount += 1
     }
     
-    func getClipFrameBy(_ trackIndex:Int,xOffset:CGFloat) ->NSRect {
-        let lx = self.frame.origin.x + xOffset
-        let ly = self.frame.size.height - trackHeight * CGFloat(trackIndex)
-        let lw = self.clipWidth
-        let lh = self.clipHeight
-        let frame = NSRect(x: lx, y: ly, width: lw, height: lh)
-        return frame
+    // MARK: - Draw
+    override func draw(_ dirtyRect: NSRect) {
+        let backGroundColor = NSColor(calibratedRed: 0.081841, green: 0.097876, blue: 0.110399, alpha: 1.0)
+        backGroundColor.set()
+        NSBezierPath.fill(dirtyRect)
+        
+        // Get current context
+        let context = NSGraphicsContext.current()!.cgContext
+        let tickHeight = self.frame.height
+        let tickWidth:CGFloat = 1
+        let tickColor = NSColor.white
+        self.drawTick(context, pointX: seekPosition, width: tickWidth, height: tickHeight, color: tickColor)
     }
     
-    func addClipViewInTrack(_ trackIndex: Int, offset:Double) {
-        
-        let frame = self.getClipFrameBy(trackIndex, xOffset: CGFloat(offset))
-        
-        let clipView = FSClipView(frame: frame)
-        clipView.trackIndex = trackIndex
-        clipView.position = offset
-        clipView.delegate = self
-        clipView.autoresizingMask = [.viewMinYMargin,.viewMaxXMargin]
-        self.addSubview(clipView)
+    private func drawTick(_ context: CGContext, pointX: CGFloat, width: CGFloat, height: CGFloat, color: NSColor) {
+        context.setStrokeColor(color.cgColor)
+        context.setLineWidth(width)
+        context.setLineCap(CGLineCap.round)
+        context.move(to: CGPoint(x: pointX, y: 0))
+        context.addLine(to: CGPoint(x: pointX, y: height))
+        context.strokePath()
+    }
+    
+    // MARK: - Notification
+    func registerAllNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(FSTimelineView.recvChangeSeekPositionNotification(_:)), name: NSNotification.Name.Timeline.DidChangeSeekPosition, object: nil)
+    }
+    
+    func recvChangeSeekPositionNotification(_ notification: Notification) {
+        let seekPosition = notification.object as! CGFloat
+        self.seekPosition = seekPosition
     }
 }
 
+// MARK: - FSClipViewDelegate
 extension FSTimelineView: FSClipViewDelegate {
     func clipView(_ clipView: FSClipView, shouldOtherClipUnfocus shouldUnfocus: Bool) {
         if shouldUnfocus {
             for otherClipView in self.subviews where  otherClipView != clipView {
                 if let clip = otherClipView as? FSClipView {
-                    if clip.isFocus {
-                        clip.isFocus = false
-                    }
+                    clip.isFocus = false
                 }
             }
         }
@@ -107,7 +167,12 @@ extension FSTimelineView: FSClipViewDelegate {
             }
         }
         if yOffset < -trackHeight {
-            return true
+            if clipView.trackIndex >= trackCount {
+                return false
+            }
+            else {
+                return true
+            }
         }
         return false
     }

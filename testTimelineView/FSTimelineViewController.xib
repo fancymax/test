@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="FSTimelineViewController" customModule="testTimelineView" customModuleProvider="target">
+            <connections>
+                <outlet property="timelineHeadListView" destination="rId-Nh-xoy" id="2jt-AY-dQF"/>
+                <outlet property="timelineHeadScrollView" destination="LtF-RV-7wh" id="dfm-D3-bpu"/>
+                <outlet property="timelineListView" destination="Cm9-d8-fyA" id="vQ8-Gq-6kj"/>
+                <outlet property="timelinePlayheadScrollView" destination="14j-I5-HHI" id="R1k-U1-TpT"/>
+                <outlet property="timelineScrollView" destination="Rtd-0y-Hj7" id="vSs-9Z-Sfe"/>
+                <outlet property="view" destination="c22-O7-iKe" id="Zci-i6-vb4"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="1189" height="347"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rtd-0y-Hj7" customClass="SynchroScrollView" customModule="testTimelineView" customModuleProvider="target">
+                    <rect key="frame" x="91" y="0.0" width="1098" height="308"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="ish-BS-3j7">
+                        <rect key="frame" x="0.0" y="0.0" width="1083" height="293"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cm9-d8-fyA" customClass="FSTimelineView" customModule="testTimelineView" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="1083" height="293"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </customView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.11697144061326981" green="0.13686344027519226" blue="0.16183501482009888" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="nkc-T6-GRu">
+                        <rect key="frame" x="0.0" y="293" width="1083" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="cZ3-hj-GAk">
+                        <rect key="frame" x="1083" y="0.0" width="15" height="293"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LtF-RV-7wh" customClass="SynchroScrollView" customModule="testTimelineView" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="91" height="308"/>
+                    <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                    <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="hXf-Z3-GER">
+                        <rect key="frame" x="0.0" y="0.0" width="91" height="293"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rId-Nh-xoy" customClass="FSTimelineHeaderView" customModule="testTimelineView" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="91" height="293"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                            </customView>
+                        </subviews>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="rpP-Fy-gug" customClass="FSScroller" customModule="testTimelineView" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="293" width="91" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="dmG-SQ-gII">
+                        <rect key="frame" x="-100" y="-100" width="15" height="337"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14j-I5-HHI" customClass="SynchroScrollView" customModule="testTimelineView" customModuleProvider="target">
+                    <rect key="frame" x="91" y="308" width="1098" height="39"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="9ZC-H3-yIp">
+                        <rect key="frame" x="0.0" y="0.0" width="1098" height="39"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Far-5E-ubK" customClass="FSPlayheadTrackView" customModule="testTimelineView" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="1098" height="39"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            </customView>
+                        </subviews>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="F2d-Ll-ZKS">
+                        <rect key="frame" x="-100" y="-100" width="1098" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="aCo-XA-mWd">
+                        <rect key="frame" x="-100" y="-100" width="15" height="54"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+            </subviews>
+            <point key="canvasLocation" x="-229.5" y="-34.5"/>
+        </customView>
+    </objects>
+</document>

@@ -8,8 +8,11 @@
 
 import Cocoa
 
-class FSTrackView: NSView {
-
+class FSTrackView: FSTimelineBaseView {
+    var trackSeperatelineHeight:CGFloat = 1
+    
+    var isInUse = true
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
@@ -25,12 +28,12 @@ class FSTrackView: NSView {
     }
     
     override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
-
-        // Drawing code here.
         let backGroundColor = NSColor(calibratedWhite: 1, alpha: 0.1)
         backGroundColor.set()
-        NSBezierPath.fill(dirtyRect)
+        var rect = dirtyRect
+        rect.size.height = trackSeperatelineHeight
+        NSBezierPath.fill(rect)
     }
     
+
 }

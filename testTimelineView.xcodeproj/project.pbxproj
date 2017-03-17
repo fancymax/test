@@ -7,15 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F15250B81E7A8B1500CF0440 /* DemoClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15250B71E7A8B1500CF0440 /* DemoClip.swift */; };
+		F15250BA1E7A8B2F00CF0440 /* DemoTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15250B91E7A8B2F00CF0440 /* DemoTrack.swift */; };
+		F15250BC1E7A8B5400CF0440 /* DemoTimeLineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15250BB1E7A8B5400CF0440 /* DemoTimeLineManager.swift */; };
+		F1AA70CE1E78D2700005185A /* FSTimelineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1AA70CD1E78D2700005185A /* FSTimelineViewController.xib */; };
+		F1AA70D71E78ED650005185A /* FSScroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AA70D61E78ED650005185A /* FSScroller.swift */; };
+		F1AA70D91E78EF700005185A /* SynchroScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AA70D81E78EF700005185A /* SynchroScrollView.swift */; };
+		F1AD2FDC1E77904A00AE6F72 /* FSTimelineHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AD2FDB1E77904A00AE6F72 /* FSTimelineHeaderView.swift */; };
+		F1AD2FDE1E77928F00AE6F72 /* FSTrackHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AD2FDD1E77928F00AE6F72 /* FSTrackHeaderView.swift */; };
+		F1AD2FE01E7798AA00AE6F72 /* FSTrackSplitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AD2FDF1E7798AA00AE6F72 /* FSTrackSplitterView.swift */; };
+		F1AD2FE21E77BDB000AE6F72 /* FSPlayheadTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AD2FE11E77BDB000AE6F72 /* FSPlayheadTrackView.swift */; };
+		F1AD2FE61E77E65D00AE6F72 /* FSTimelineNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AD2FE51E77E65D00AE6F72 /* FSTimelineNotification.swift */; };
+		F1AD2FE81E7810EE00AE6F72 /* FSTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AD2FE71E7810EE00AE6F72 /* FSTimelineViewController.swift */; };
 		F1AE3C951E5FD08B00D75C21 /* FSClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE3C941E5FD08B00D75C21 /* FSClipView.swift */; };
 		F1BCCFAD1E5EE86200C04DF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BCCFAC1E5EE86200C04DF0 /* AppDelegate.swift */; };
 		F1BCCFAF1E5EE86200C04DF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1BCCFAE1E5EE86200C04DF0 /* Assets.xcassets */; };
 		F1BCCFB21E5EE86200C04DF0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1BCCFB01E5EE86200C04DF0 /* MainMenu.xib */; };
 		F1BCCFC01E5EE9A400C04DF0 /* FSTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BCCFBE1E5EE9A400C04DF0 /* FSTimelineView.swift */; };
 		F1BCCFC11E5EE9A400C04DF0 /* FSTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BCCFBF1E5EE9A400C04DF0 /* FSTrackView.swift */; };
+		F1D9E3701E7BC9E800E63F98 /* FSTimelineBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D9E36F1E7BC9E800E63F98 /* FSTimelineBaseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F15250B71E7A8B1500CF0440 /* DemoClip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DemoClip.swift; path = DemoModel/DemoClip.swift; sourceTree = "<group>"; };
+		F15250B91E7A8B2F00CF0440 /* DemoTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DemoTrack.swift; path = DemoModel/DemoTrack.swift; sourceTree = "<group>"; };
+		F15250BB1E7A8B5400CF0440 /* DemoTimeLineManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DemoTimeLineManager.swift; path = DemoModel/DemoTimeLineManager.swift; sourceTree = "<group>"; };
+		F1AA70CD1E78D2700005185A /* FSTimelineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSTimelineViewController.xib; sourceTree = "<group>"; };
+		F1AA70D61E78ED650005185A /* FSScroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSScroller.swift; sourceTree = "<group>"; };
+		F1AA70D81E78EF700005185A /* SynchroScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynchroScrollView.swift; sourceTree = "<group>"; };
+		F1AD2FDB1E77904A00AE6F72 /* FSTimelineHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSTimelineHeaderView.swift; sourceTree = "<group>"; };
+		F1AD2FDD1E77928F00AE6F72 /* FSTrackHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSTrackHeaderView.swift; sourceTree = "<group>"; };
+		F1AD2FDF1E7798AA00AE6F72 /* FSTrackSplitterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSTrackSplitterView.swift; sourceTree = "<group>"; };
+		F1AD2FE11E77BDB000AE6F72 /* FSPlayheadTrackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPlayheadTrackView.swift; sourceTree = "<group>"; };
+		F1AD2FE51E77E65D00AE6F72 /* FSTimelineNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSTimelineNotification.swift; sourceTree = "<group>"; };
+		F1AD2FE71E7810EE00AE6F72 /* FSTimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSTimelineViewController.swift; sourceTree = "<group>"; };
 		F1AE3C941E5FD08B00D75C21 /* FSClipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSClipView.swift; sourceTree = "<group>"; };
 		F1BCCFA91E5EE86200C04DF0 /* testTimelineView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testTimelineView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1BCCFAC1E5EE86200C04DF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +49,7 @@
 		F1BCCFB31E5EE86200C04DF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1BCCFBE1E5EE9A400C04DF0 /* FSTimelineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSTimelineView.swift; sourceTree = "<group>"; };
 		F1BCCFBF1E5EE9A400C04DF0 /* FSTrackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSTrackView.swift; sourceTree = "<group>"; };
+		F1D9E36F1E7BC9E800E63F98 /* FSTimelineBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSTimelineBaseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +63,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F1AA70DA1E79149F0005185A /* DemoModel */ = {
+			isa = PBXGroup;
+			children = (
+				F15250B71E7A8B1500CF0440 /* DemoClip.swift */,
+				F15250B91E7A8B2F00CF0440 /* DemoTrack.swift */,
+				F15250BB1E7A8B5400CF0440 /* DemoTimeLineManager.swift */,
+			);
+			name = DemoModel;
+			sourceTree = "<group>";
+		};
 		F1BCCFA01E5EE86200C04DF0 = {
 			isa = PBXGroup;
 			children = (
@@ -56,7 +92,12 @@
 		F1BCCFAB1E5EE86200C04DF0 /* testTimelineView */ = {
 			isa = PBXGroup;
 			children = (
+				F1AD2FE71E7810EE00AE6F72 /* FSTimelineViewController.swift */,
+				F1AA70CD1E78D2700005185A /* FSTimelineViewController.xib */,
+				F1AA70D61E78ED650005185A /* FSScroller.swift */,
+				F1AA70D81E78EF700005185A /* SynchroScrollView.swift */,
 				F1BCCFBD1E5EE9A400C04DF0 /* Timeline */,
+				F1AA70DA1E79149F0005185A /* DemoModel */,
 				F1BCCFAC1E5EE86200C04DF0 /* AppDelegate.swift */,
 				F1BCCFAE1E5EE86200C04DF0 /* Assets.xcassets */,
 				F1BCCFB01E5EE86200C04DF0 /* MainMenu.xib */,
@@ -68,9 +109,15 @@
 		F1BCCFBD1E5EE9A400C04DF0 /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
+				F1D9E36F1E7BC9E800E63F98 /* FSTimelineBaseView.swift */,
 				F1BCCFBE1E5EE9A400C04DF0 /* FSTimelineView.swift */,
+				F1AD2FDB1E77904A00AE6F72 /* FSTimelineHeaderView.swift */,
 				F1BCCFBF1E5EE9A400C04DF0 /* FSTrackView.swift */,
+				F1AD2FDD1E77928F00AE6F72 /* FSTrackHeaderView.swift */,
+				F1AD2FDF1E7798AA00AE6F72 /* FSTrackSplitterView.swift */,
 				F1AE3C941E5FD08B00D75C21 /* FSClipView.swift */,
+				F1AD2FE11E77BDB000AE6F72 /* FSPlayheadTrackView.swift */,
+				F1AD2FE51E77E65D00AE6F72 /* FSTimelineNotification.swift */,
 			);
 			path = Timeline;
 			sourceTree = "<group>";
@@ -136,6 +183,7 @@
 			files = (
 				F1BCCFAF1E5EE86200C04DF0 /* Assets.xcassets in Resources */,
 				F1BCCFB21E5EE86200C04DF0 /* MainMenu.xib in Resources */,
+				F1AA70CE1E78D2700005185A /* FSTimelineViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,7 +197,19 @@
 				F1BCCFC01E5EE9A400C04DF0 /* FSTimelineView.swift in Sources */,
 				F1BCCFC11E5EE9A400C04DF0 /* FSTrackView.swift in Sources */,
 				F1BCCFAD1E5EE86200C04DF0 /* AppDelegate.swift in Sources */,
+				F1AD2FE01E7798AA00AE6F72 /* FSTrackSplitterView.swift in Sources */,
+				F1AD2FE81E7810EE00AE6F72 /* FSTimelineViewController.swift in Sources */,
+				F1AD2FDC1E77904A00AE6F72 /* FSTimelineHeaderView.swift in Sources */,
+				F15250BA1E7A8B2F00CF0440 /* DemoTrack.swift in Sources */,
+				F1AA70D91E78EF700005185A /* SynchroScrollView.swift in Sources */,
+				F1AA70D71E78ED650005185A /* FSScroller.swift in Sources */,
+				F1D9E3701E7BC9E800E63F98 /* FSTimelineBaseView.swift in Sources */,
+				F1AD2FE61E77E65D00AE6F72 /* FSTimelineNotification.swift in Sources */,
+				F15250BC1E7A8B5400CF0440 /* DemoTimeLineManager.swift in Sources */,
+				F1AD2FE21E77BDB000AE6F72 /* FSPlayheadTrackView.swift in Sources */,
+				F1AD2FDE1E77928F00AE6F72 /* FSTrackHeaderView.swift in Sources */,
 				F1AE3C951E5FD08B00D75C21 /* FSClipView.swift in Sources */,
+				F15250B81E7A8B1500CF0440 /* DemoClip.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
